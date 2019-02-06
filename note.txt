@@ -1,0 +1,43 @@
+References - https://backend-intro.vlpt.us
+
+Mongoose 는 MongoDB 기반 ODM (Object Data Modelling) 라이브러리이다.
+이 라이브러리는, 데이터베이스상의 문서들을 JavaScript 상의 객체로 사용 할 수 있게 해준다.
+
+$ yarn add mongoose
+$ yarn add dotenv
+
+dotenv 는 환경변수들을 파일에 넣고 사용 할 수 있게 해주는 개발용 모듈이다.
+
+우리는, mongoose 를 연결 할 때 서버에 대한 계정과 비밀번호를 입력하게되는데, 
+이런 민감한 정보들은 코드상에서 직접 작성하지 않고 환경변수로 설정하는것이 좋다. 
+
+만약에 프로젝트를 오픈소스로 공개를 하는 경우에는 
+.gitignore 을 통해서 환경변수가 들어있는 파일을 제외시키면 된다.
+
+-------------------------------------------------
+
+REST API 에서는, 요청의 종류에 따라 다른 HTTP 메소드를 사용합니다. 
+HTTP 메소드는 여러 종류가 있는데 그 중 주로 사용되는것들은 다음과 같습니다.
+
+GET: 데이터를 가져올 때 사용합니다.
+POST: 데이터를 등록 할 때 사용됩니다. 혹은, 인증작업을 거칠때도 사용됩니다.
+DELETE: 데이터를 지울 때 사용됩니다.
+PUT: 데이터를 교체 할 때 사용됩니다.
+PATCH: 데이터의 특정 필드를 수정 할 때 사용됩니다.
+
+라우터에서 각 메소드에 대한 요청을 준비 할 때는, 
+.get, .post, .delete, .put, .patch 를 사용하면 됩니다.
+
+---------------------------------------------------
+
+exports 가 module.exports 와 동일하며
+동일한 객체를 call by reference 방식으로 바라보고 있으며
+최종적으로 리턴되는 값은 module.exports 이다.
+
+기본적으로 module.exports, exports 모두 하나의 객체를 바라보고 있는데,
+최종적으로 return 되는 것은 무조건 module.exports 이다.
+exports에 멤버를 추가하면 결국 module.exports 에도 같은 멤버가 추가된다.
+
+하지만 결국 최종적으로 리턴되는 것은 module.exports 이다.
+만약 exports에 다른 객체를 할당하게 되면, module.exports의 겍채와 달라지게 되고,
+exports에 어떤 변경을 해도 모듈에는 영향을 주지 못한다.
